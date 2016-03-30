@@ -21,12 +21,12 @@ module.exports = {
 					path.resolve(__dirname, "src"),
 				],
 				// Only run `.js` and `.jsx` files through Babel
-				test: /\.jsx?$/,
-				// Options to configure babel with
+				test: /\.jsx?$//*,
+				// Options to configure babel with (moved to .babelrc)
 				query: {
 					plugins: ['transform-runtime'],
 					presets: ['es2015', 'react'],
-				}
+				}*/
 			}
 		]
 	},
