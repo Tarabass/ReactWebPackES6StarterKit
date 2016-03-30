@@ -10,6 +10,6 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Home from './components/home';
 
-ReactDOM.render(<App />, document.getElementById("main"));
+ReactDOM.render(<Home />, document.getElementById("main"));

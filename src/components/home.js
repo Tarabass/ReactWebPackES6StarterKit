@@ -9,11 +9,10 @@
  * Copyright (c) 2016 Strictly Internet
  */
 import React, {Component} from 'react';
-import Paragraph from './Paragraph';
+import Paragraph from './paragraph';
 
-class App extends Component {
+class Home extends Component {
 	render() {
-		//return (<h1>This is React!</h1><br><h2>http://edspencer.net/2016/03/20/a-new-stack-for-2016-getting-started-with-react-es6-and-webpack/</h2>);
 		return (
 			<div className="my-app">
 				<h1>This is React!!!</h1>
@@ -23,4 +22,4 @@ class App extends Component {
 		);
 	}
 }
-export default App;
+export default Home;
