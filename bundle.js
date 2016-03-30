@@ -61,22 +61,22 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _App = __webpack_require__(160);
+	var _home = __webpack_require__(160);
 
-	var _App2 = _interopRequireDefault(_App);
+	var _home2 = _interopRequireDefault(_home);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById("main")); /**
-	                                                                                                                 * Created by Peter Rietveld (p.rietveld@live.com) on 28-3-2016.
-	                                                                                                                 *
-	                                                                                                                 * Any use of the code written here-in belongs to the developer and is
-	                                                                                                                 * hereby the owner. If used, one must have strict approval by the
-	                                                                                                                 * developer of the code written here-in. The developer may at anytime
-	                                                                                                                 * change, modify, add, or delete any content contained within.
-	                                                                                                                 *
-	                                                                                                                 * Copyright (c) 2016 Strictly Internet
-	                                                                                                                 */
+	_reactDom2.default.render(_react2.default.createElement(_home2.default, null), document.getElementById("main")); /**
+	                                                                                                                  * Created by Peter Rietveld (p.rietveld@live.com) on 28-3-2016.
+	                                                                                                                  *
+	                                                                                                                  * Any use of the code written here-in belongs to the developer and is
+	                                                                                                                  * hereby the owner. If used, one must have strict approval by the
+	                                                                                                                  * developer of the code written here-in. The developer may at anytime
+	                                                                                                                  * change, modify, add, or delete any content contained within.
+	                                                                                                                  *
+	                                                                                                                  * Copyright (c) 2016 Strictly Internet
+	                                                                                                                  */
 
 /***/ },
 /* 2 */
@@ -19686,7 +19686,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
 
 	var _getPrototypeOf = __webpack_require__(161);
@@ -19713,9 +19713,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Paragraph = __webpack_require__(243);
+	var _paragraph = __webpack_require__(243);
 
-	var _Paragraph2 = _interopRequireDefault(_Paragraph);
+	var _paragraph2 = _interopRequireDefault(_paragraph);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19730,35 +19730,34 @@
 	 * Copyright (c) 2016 Strictly Internet
 	 */
 
-	var App = function (_Component) {
-		(0, _inherits3.default)(App, _Component);
+	var Home = function (_Component) {
+	  (0, _inherits3.default)(Home, _Component);
 
-		function App() {
-			(0, _classCallCheck3.default)(this, App);
-			return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(App).apply(this, arguments));
-		}
+	  function Home() {
+	    (0, _classCallCheck3.default)(this, Home);
+	    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Home).apply(this, arguments));
+	  }
 
-		(0, _createClass3.default)(App, [{
-			key: 'render',
-			value: function render() {
-				//return (<h1>This is React!</h1><br><h2>http://edspencer.net/2016/03/20/a-new-stack-for-2016-getting-started-with-react-es6-and-webpack/</h2>);
-				return _react2.default.createElement(
-					'div',
-					{ className: 'my-app' },
-					_react2.default.createElement(
-						'h1',
-						null,
-						'This is React!!!'
-					),
-					_react2.default.createElement(_Paragraph2.default, { text: 'I followed a tutorial on:' }),
-					_react2.default.createElement(_Paragraph2.default, { text: 'http://edspencer.net/2016/03/20/a-new-stack-for-2016-getting-started-with-react-es6-and-webpack/' })
-				);
-			}
-		}]);
-		return App;
+	  (0, _createClass3.default)(Home, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'my-app' },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'This is React!!!'
+	        ),
+	        _react2.default.createElement(_paragraph2.default, { text: 'I followed a tutorial on:' }),
+	        _react2.default.createElement(_paragraph2.default, { text: 'http://edspencer.net/2016/03/20/a-new-stack-for-2016-getting-started-with-react-es6-and-webpack/' })
+	      );
+	    }
+	  }]);
+	  return Home;
 	}(_react.Component);
 
-	exports.default = App;
+	exports.default = Home;
 
 /***/ },
 /* 161 */
