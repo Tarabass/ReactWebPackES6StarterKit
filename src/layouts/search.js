@@ -1,5 +1,5 @@
 /**
- * Created by Peter Rietveld (p.rietveld@live.com) on 28-3-2016.
+ * Created by Peter Rietveld (p.rietveld@live.com) on 5-4-2016.
  *
  * Any use of the code written here-in belongs to the developer and is
  * hereby the owner. If used, one must have strict approval by the
@@ -10,31 +10,24 @@
  */
 import React, {Component} from 'react';
 
-class Users extends Component {
+class Search extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-
-		};
+		this.state = {};
 	}
 	render() {
 		return (
-			<div className="my-app">
-				<h1>This is the users page</h1>
-				<ul className="user-list">
-					<li>Dan</li>
-					<li>Ryan</li>
-					<li>Michael</li>
-				</ul>
+			<div style={{border: '1px solid red'}} >
+				{this.props.children}
 			</div>
 		);
 	}
 }
-Users.propTypes = {
+Search.propTypes = {
 
 };
-Users.defaultProps = {
+Search.defaultProps = {
 
 };
 
-export default Users;
+export default Search;

@@ -19708,12 +19708,21 @@
 
 	var _users2 = _interopRequireDefault(_users);
 
-	var _main = __webpack_require__(302);
+	var _widgets = __webpack_require__(306);
+
+	var _widgets2 = _interopRequireDefault(_widgets);
+
+	var _main = __webpack_require__(304);
 
 	var _main2 = _interopRequireDefault(_main);
 
+	var _search = __webpack_require__(305);
+
+	var _search2 = _interopRequireDefault(_search);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	// Layouts
 	exports.default = _react2.default.createElement(
 	  _reactRouter.Router,
 	  null,
@@ -19721,12 +19730,14 @@
 	    _reactRouter.Route,
 	    { path: '/', component: _main2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'users', component: _users2.default })
+	    _react2.default.createElement(
+	      _reactRouter.Route,
+	      { component: _search2.default },
+	      _react2.default.createElement(_reactRouter.Route, { path: 'users', component: _users2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: 'widgets', component: _widgets2.default })
+	    )
 	  )
 	);
-
-	// Layouts
-
 
 	// Pages
 	/**
@@ -26464,7 +26475,107 @@
 	exports.default = Paragraph;
 
 /***/ },
-/* 302 */
+/* 302 */,
+/* 303 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(219);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(245);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(246);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(250);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(293);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Users = function (_Component) {
+		(0, _inherits3.default)(Users, _Component);
+
+		function Users(props) {
+			(0, _classCallCheck3.default)(this, Users);
+
+			var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Users).call(this, props));
+
+			_this.state = {};
+			return _this;
+		}
+
+		(0, _createClass3.default)(Users, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					{ className: "my-app" },
+					_react2.default.createElement(
+						"h1",
+						null,
+						"This is the users page"
+					),
+					_react2.default.createElement(
+						"ul",
+						{ className: "user-list" },
+						_react2.default.createElement(
+							"li",
+							null,
+							"Dan"
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							"Ryan"
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							"Michael"
+						)
+					)
+				);
+			}
+		}]);
+		return Users;
+	}(_react.Component); /**
+	                      * Created by Peter Rietveld (p.rietveld@live.com) on 28-3-2016.
+	                      *
+	                      * Any use of the code written here-in belongs to the developer and is
+	                      * hereby the owner. If used, one must have strict approval by the
+	                      * developer of the code written here-in. The developer may at anytime
+	                      * change, modify, add, or delete any content contained within.
+	                      *
+	                      * Copyright (c) 2016 Strictly Internet
+	                      */
+
+
+	Users.propTypes = {};
+	Users.defaultProps = {};
+
+	exports.default = Users;
+
+/***/ },
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26564,7 +26675,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26597,56 +26708,146 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _paragraph = __webpack_require__(301);
-
-	var _paragraph2 = _interopRequireDefault(_paragraph);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * Created by Peter Rietveld (p.rietveld@live.com) on 28-3-2016.
-	 *
-	 * Any use of the code written here-in belongs to the developer and is
-	 * hereby the owner. If used, one must have strict approval by the
-	 * developer of the code written here-in. The developer may at anytime
-	 * change, modify, add, or delete any content contained within.
-	 *
-	 * Copyright (c) 2016 Strictly Internet
-	 */
+	var Search = function (_Component) {
+		(0, _inherits3.default)(Search, _Component);
 
-	var Users = function (_Component) {
-		(0, _inherits3.default)(Users, _Component);
+		function Search(props) {
+			(0, _classCallCheck3.default)(this, Search);
 
-		function Users(props) {
-			(0, _classCallCheck3.default)(this, Users);
-
-			var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Users).call(this, props));
+			var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Search).call(this, props));
 
 			_this.state = {};
 			return _this;
 		}
 
-		(0, _createClass3.default)(Users, [{
+		(0, _createClass3.default)(Search, [{
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					{ className: 'my-app' },
+					{ style: { border: '1px solid red' } },
+					this.props.children
+				);
+			}
+		}]);
+		return Search;
+	}(_react.Component); /**
+	                      * Created by Peter Rietveld (p.rietveld@live.com) on 5-4-2016.
+	                      *
+	                      * Any use of the code written here-in belongs to the developer and is
+	                      * hereby the owner. If used, one must have strict approval by the
+	                      * developer of the code written here-in. The developer may at anytime
+	                      * change, modify, add, or delete any content contained within.
+	                      *
+	                      * Copyright (c) 2016 Strictly Internet
+	                      */
+
+
+	Search.propTypes = {};
+	Search.defaultProps = {};
+
+	exports.default = Search;
+
+/***/ },
+/* 306 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(219);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(245);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(246);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(250);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(293);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Widgets = function (_Component) {
+		(0, _inherits3.default)(Widgets, _Component);
+
+		function Widgets(props) {
+			(0, _classCallCheck3.default)(this, Widgets);
+
+			var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Widgets).call(this, props));
+
+			_this.state = {};
+			return _this;
+		}
+
+		(0, _createClass3.default)(Widgets, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					{ className: "my-app" },
 					_react2.default.createElement(
-						'h1',
+						"h1",
 						null,
-						'This is the users page'
+						"This is the widgets page"
+					),
+					_react2.default.createElement(
+						"ul",
+						{ className: "widget-list" },
+						_react2.default.createElement(
+							"li",
+							null,
+							"Widget 1"
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							"Widget 2"
+						),
+						_react2.default.createElement(
+							"li",
+							null,
+							"Widget 3"
+						)
 					)
 				);
 			}
 		}]);
-		return Users;
-	}(_react.Component);
+		return Widgets;
+	}(_react.Component); /**
+	                      * Created by Peter Rietveld (p.rietveld@live.com) on 28-3-2016.
+	                      *
+	                      * Any use of the code written here-in belongs to the developer and is
+	                      * hereby the owner. If used, one must have strict approval by the
+	                      * developer of the code written here-in. The developer may at anytime
+	                      * change, modify, add, or delete any content contained within.
+	                      *
+	                      * Copyright (c) 2016 Strictly Internet
+	                      */
 
-	Users.propTypes = {};
-	Users.defaultProps = {};
 
-	exports.default = Users;
+	Widgets.propTypes = {};
+	Widgets.defaultProps = {};
+
+	exports.default = Widgets;
 
 /***/ }
 /******/ ]);

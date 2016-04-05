@@ -10,7 +10,7 @@
  */
 import React, {Component} from 'react';
 
-class Users extends Component {
+class Widgets extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -20,21 +20,21 @@ class Users extends Component {
 	render() {
 		return (
 			<div className="my-app">
-				<h1>This is the users page</h1>
-				<ul className="user-list">
-					<li>Dan</li>
-					<li>Ryan</li>
-					<li>Michael</li>
+				<h1>This is the widgets page</h1>
+				<ul className="widget-list">
+					<li>Widget 1</li>
+					<li>Widget 2</li>
+					<li>Widget 3</li>
 				</ul>
 			</div>
 		);
 	}
 }
-Users.propTypes = {
+Widgets.propTypes = {
 
 };
-Users.defaultProps = {
+Widgets.defaultProps = {
 
 };
 
-export default Users;
+export default Widgets;

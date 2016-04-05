@@ -14,15 +14,20 @@ import { Router, Route/*, browserHistory*/, IndexRoute } from 'react-router';
 // Pages
 import Home from './components/home';
 import Users from './components/users';
+import Widgets from './components/widgets';
 
 // Layouts
-import Main from './components/main';
+import Main from './layouts/main';
+import Search from './layouts/search';
 
 export default (
 	<Router>
 		<Route path="/" component={Main}>
 			<IndexRoute component={Home} />
-			<Route path="users" component={Users} />
+			<Route component={Search}>
+				<Route path="users" component={Users} />
+				<Route path="widgets" component={Widgets} />
+			</Route>
 		</Route>
 	</Router>
 );
