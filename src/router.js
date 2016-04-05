@@ -9,13 +9,20 @@
  * Copyright (c) 2016 Strictly Internet
  */
 import React from 'react';
-import { Router, Route/*, browserHistory, IndexRoute*/ } from 'react-router';
+import { Router, Route/*, browserHistory*/, IndexRoute } from 'react-router';
 
 // Pages
 import Home from './components/home';
+import Users from './components/users';
+
+// Layouts
+import Main from './components/main';
 
 export default (
 	<Router>
-		<Route path="/" component={Home} />
+		<Route path="/" component={Main}>
+			<IndexRoute component={Home} />
+			<Route path="users" component={Users} />
+		</Route>
 	</Router>
 );

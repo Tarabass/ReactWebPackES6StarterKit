@@ -7978,6 +7978,10 @@
 	  }
 	};
 
+	function registerNullComponentID() {
+	  ReactEmptyComponentRegistry.registerNullComponentID(this._rootNodeID);
+	}
+
 	var ReactEmptyComponent = function (instantiate) {
 	  this._currentElement = null;
 	  this._rootNodeID = null;
@@ -7986,7 +7990,7 @@
 	assign(ReactEmptyComponent.prototype, {
 	  construct: function (element) {},
 	  mountComponent: function (rootID, transaction, context) {
-	    ReactEmptyComponentRegistry.registerNullComponentID(rootID);
+	    transaction.getReactMountReady().enqueue(registerNullComponentID, this);
 	    this._rootNodeID = rootID;
 	    return ReactReconciler.mountComponent(this._renderedComponent, rootID, transaction, context);
 	  },
@@ -18709,7 +18713,7 @@
 
 	'use strict';
 
-	module.exports = '0.14.7';
+	module.exports = '0.14.8';
 
 /***/ },
 /* 148 */
@@ -19700,13 +19704,29 @@
 
 	var _home2 = _interopRequireDefault(_home);
 
+	var _users = __webpack_require__(303);
+
+	var _users2 = _interopRequireDefault(_users);
+
+	var _main = __webpack_require__(302);
+
+	var _main2 = _interopRequireDefault(_main);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createElement(
 	  _reactRouter.Router,
 	  null,
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _home2.default })
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: _main2.default },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'users', component: _users2.default })
+	  )
 	);
+
+	// Layouts
+
 
 	// Pages
 	/**
@@ -24837,9 +24857,13 @@
 	var Home = function (_Component) {
 		(0, _inherits3.default)(Home, _Component);
 
-		function Home() {
+		function Home(props) {
 			(0, _classCallCheck3.default)(this, Home);
-			return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Home).apply(this, arguments));
+
+			var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Home).call(this, props));
+
+			_this.state = {};
+			return _this;
 		}
 
 		(0, _createClass3.default)(Home, [{
@@ -24855,12 +24879,27 @@
 					),
 					_react2.default.createElement(_paragraph2.default, { text: 'I followed a tutorial on:' }),
 					_react2.default.createElement(_paragraph2.default, { text: 'http://edspencer.net/2016/03/20/a-new-stack-for-2016-getting-started-with-react-es6-and-webpack/' }),
-					_react2.default.createElement(_paragraph2.default, { text: 'https://css-tricks.com/learning-react-router/' })
+					_react2.default.createElement(_paragraph2.default, { text: 'https://css-tricks.com/learning-react-router/' }),
+					_react2.default.createElement(_paragraph2.default, { text: 'I also read about React.createClass versus extends Component at:' }),
+					_react2.default.createElement(_paragraph2.default, { text: 'https://toddmotto.com/react-create-class-versus-component/' }),
+					_react2.default.createElement(
+						'div',
+						{ onClick: this.handleClick.bind(this) },
+						'handle click of extend Components (home.js)'
+					)
 				);
+			}
+		}, {
+			key: 'handleClick',
+			value: function handleClick() {
+				console.log(this); // React Component instance
 			}
 		}]);
 		return Home;
 	}(_react.Component);
+
+	Home.propTypes = {};
+	Home.defaultProps = {};
 
 	exports.default = Home;
 
@@ -26423,6 +26462,191 @@
 
 
 	exports.default = Paragraph;
+
+/***/ },
+/* 302 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(161);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Created by Peter Rietveld (p.rietveld@live.com) on 30-3-2016.
+	 *
+	 * Any use of the code written here-in belongs to the developer and is
+	 * hereby the owner. If used, one must have strict approval by the
+	 * developer of the code written here-in. The developer may at anytime
+	 * change, modify, add, or delete any content contained within.
+	 *
+	 * Copyright (c) 2016 Strictly Internet
+	 */
+
+
+	var Main = _react2.default.createClass({
+		displayName: 'Main',
+
+		propTypes: {},
+		getDefaultProps: function getDefaultProps() {
+			return {};
+		},
+		getInitialState: function getInitialState() {
+			return {};
+		},
+
+		render: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'app' },
+				_react2.default.createElement('header', { className: 'primary-header' }),
+				_react2.default.createElement(
+					'aside',
+					{ className: 'primary-aside' },
+					_react2.default.createElement(
+						'ul',
+						null,
+						_react2.default.createElement(
+							'li',
+							null,
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/', activeClassName: 'active' },
+								'Home'
+							)
+						),
+						_react2.default.createElement(
+							'li',
+							null,
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: '/users', activeClassName: 'active' },
+								'Users'
+							)
+						),
+						_react2.default.createElement(
+							'li',
+							null,
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: 'widgets', activeClassName: 'active' },
+								'Widgets'
+							)
+						)
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ onClick: this.handleClick },
+					'handle click of createClass instance (main.js)'
+				),
+				_react2.default.createElement(
+					'main',
+					null,
+					this.props.children
+				)
+			);
+		},
+		handleClick: function handleClick() {
+			console.log(this); // React Component instance
+		}
+	});
+
+	exports.default = Main;
+
+/***/ },
+/* 303 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(219);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(245);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(246);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(250);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(293);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _paragraph = __webpack_require__(301);
+
+	var _paragraph2 = _interopRequireDefault(_paragraph);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Created by Peter Rietveld (p.rietveld@live.com) on 28-3-2016.
+	 *
+	 * Any use of the code written here-in belongs to the developer and is
+	 * hereby the owner. If used, one must have strict approval by the
+	 * developer of the code written here-in. The developer may at anytime
+	 * change, modify, add, or delete any content contained within.
+	 *
+	 * Copyright (c) 2016 Strictly Internet
+	 */
+
+	var Users = function (_Component) {
+		(0, _inherits3.default)(Users, _Component);
+
+		function Users(props) {
+			(0, _classCallCheck3.default)(this, Users);
+
+			var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Users).call(this, props));
+
+			_this.state = {};
+			return _this;
+		}
+
+		(0, _createClass3.default)(Users, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'my-app' },
+					_react2.default.createElement(
+						'h1',
+						null,
+						'This is the users page'
+					)
+				);
+			}
+		}]);
+		return Users;
+	}(_react.Component);
+
+	Users.propTypes = {};
+	Users.defaultProps = {};
+
+	exports.default = Users;
 
 /***/ }
 /******/ ]);

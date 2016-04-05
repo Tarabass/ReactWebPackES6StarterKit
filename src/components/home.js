@@ -12,6 +12,12 @@ import React, {Component} from 'react';
 import Paragraph from './paragraph';
 
 class Home extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+
+		};
+	}
 	render() {
 		return (
 			<div className="my-app">
@@ -19,8 +25,21 @@ class Home extends Component {
 				<Paragraph text="I followed a tutorial on:" />
 				<Paragraph text="http://edspencer.net/2016/03/20/a-new-stack-for-2016-getting-started-with-react-es6-and-webpack/" />
 				<Paragraph text="https://css-tricks.com/learning-react-router/" />
+				<Paragraph text="I also read about React.createClass versus extends Component at:" />
+				<Paragraph text="https://toddmotto.com/react-create-class-versus-component/" />
+				<div onClick={this.handleClick.bind(this)}>handle click of extend Components (home.js)</div>
 			</div>
 		);
 	}
+	handleClick() {
+		console.log(this); // React Component instance
+	}
 }
+Home.propTypes = {
+
+};
+Home.defaultProps = {
+
+};
+
 export default Home;
