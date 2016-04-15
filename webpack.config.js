@@ -38,5 +38,6 @@ module.exports = {
 	],
 	watch: true,
 	colors: true,
-	progress: true
+	progress: true,
+	devtool: 'source-map'
 };
