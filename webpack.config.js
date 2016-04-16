@@ -34,7 +34,7 @@ module.exports = {
 		filename: 'bundle.js'
 	},
 	entry: [
-		'./src/index.js'
+		'./src/app.js'
 	],
 	watch: true,
 	colors: true,

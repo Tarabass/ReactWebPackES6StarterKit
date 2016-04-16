@@ -10,7 +10,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from './router';
+import Router from './js/router';
 
 // Now we can attach the router to the 'root' element like this:
-ReactDOM.render(Router, document.getElementById('main'));
+ReactDOM.render(Router, document.getElementById('viewport'));
