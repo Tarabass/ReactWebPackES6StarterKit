@@ -11,6 +11,13 @@
 var path = require('path');
 var webpack = require('webpack');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const sassLoaders = [
+	'css-loader',
+	'postcss-loader',
+	'sass-loader?includePaths[]=' + path.resolve(__dirname, './src')
+];
+
 module.exports = {
 	module: {
 		loaders: [
@@ -27,17 +34,34 @@ module.exports = {
 					plugins: ['transform-runtime'],
 					presets: ['es2015', 'react'],
 				}*/
+			},
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
 			}
 		]
 	},
 	output: {
-		filename: 'bundle.js'
+		filename: '[name].js',
+		path: path.join(__dirname, './build'),
+		publicPath: '/build'
 	},
-	entry: [
-		'./src/app.js'
+	plugins: [
+		new ExtractTextPlugin('[name].css')
 	],
+	entry: {
+		// when using a named entry this will create a app.js and app.css when [name] is used
+		app: ['./src/app']
+	},
 	watch: true,
 	colors: true,
 	progress: true,
-	devtool: 'source-map'
+	devtool: 'source-map',
+	sassLoader: {
+		includePaths: [path.resolve(__dirname, "./src")]
+	},
+	resolve: {
+		extensions: ['', '.js', '.scss'],
+		root: [path.join(__dirname, './src')]
+	}
 };

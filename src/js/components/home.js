@@ -8,6 +8,8 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
+import 'sass/components/home';
+
 import React, {Component} from 'react';
 import Paragraph from './paragraph';
 
@@ -27,6 +29,8 @@ class Home extends Component {
 				<Paragraph text="https://css-tricks.com/learning-react-router/" />
 				<Paragraph text="I also read about React.createClass versus extends Component at:" />
 				<Paragraph text="https://toddmotto.com/react-create-class-versus-component/" />
+				<Paragraph text="Using css/sass is talked about here:" />
+				<Paragraph text="https://www.bensmithett.com/smarter-css-builds-with-webpack/" />
 				<div onClick={this.handleClick.bind(this)}>handle click of extend Components (home.js)</div>
 			</div>
 		);

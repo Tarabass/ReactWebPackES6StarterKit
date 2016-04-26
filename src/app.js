@@ -8,6 +8,8 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
+import 'sass/base';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Router from './js/router';
