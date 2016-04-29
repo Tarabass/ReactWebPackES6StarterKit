@@ -10,10 +10,20 @@
  */
 import 'sass/components/linkbutton';
 
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 
-export default class LinkButton extends Component {
+class LinkButton extends Component {
 	render() {
-		return (<a className="linkbutton" href={this.props.link} alt={this.props.text} title={this.props.text}>{this.props.text}</a>);
+		return (<a style={{color: this.props.color}} className="linkbutton" href={this.props.link} alt={this.props.text} title={this.props.text}>{this.props.text}</a>);
 	}
 }
+
+LinkButton.propTypes = {
+	color: PropTypes.string
+};
+
+LinkButton.defaultProps = {
+	color: 'red'
+};
+
+export default LinkButton;

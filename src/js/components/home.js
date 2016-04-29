@@ -10,7 +10,7 @@
  */
 import 'sass/components/home';
 
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import Paragraph from './paragraph';
 import LinkButton from './linkbutton';
 
@@ -28,7 +28,7 @@ class Home extends Component {
 				<Paragraph text="I followed a tutorial on:" />
 				<Paragraph text="http://edspencer.net/2016/03/20/a-new-stack-for-2016-getting-started-with-react-es6-and-webpack/" />
 				<Paragraph text="https://css-tricks.com/learning-react-router/" />
-				<LinkButton text="I also read about React.createClass versus extends Component" link="https://toddmotto.com/react-create-class-versus-component/" />
+				<LinkButton color="green" text="I also read about React.createClass versus extends Component" link="https://toddmotto.com/react-create-class-versus-component/" />
 				<LinkButton text="Using css/sass is talked about here" link="https://www.bensmithett.com/smarter-css-builds-with-webpack/" />
 				<div onClick={this.handleClick.bind(this)}>handle click of extend Components (home.js)</div>
 			</div>
