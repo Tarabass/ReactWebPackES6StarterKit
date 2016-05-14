@@ -13,6 +13,7 @@ import 'sass/components/home';
 import React, {Component, PropTypes} from 'react';
 import Paragraph from './paragraph';
 import LinkButton from './linkbutton';
+import Counter from './counter';
 
 class Home extends Component {
 	constructor(props) {
@@ -20,6 +21,13 @@ class Home extends Component {
 		this.state = {
 
 		};
+	}
+
+	/**
+	 * Invoked once, on both client & server before rendering occurs.
+	 */
+	componentWillMount() {
+		console.log('Function called: %s', 'componentWillMount');
 	}
 	render() {
 		return (
@@ -31,8 +39,29 @@ class Home extends Component {
 				<LinkButton color="green" text="I also read about React.createClass versus extends Component" link="https://toddmotto.com/react-create-class-versus-component/" />
 				<LinkButton text="Using css/sass is talked about here" link="https://www.bensmithett.com/smarter-css-builds-with-webpack/" />
 				<div onClick={this.handleClick.bind(this)}>handle click of extend Components (home.js)</div>
+				<Counter/>
 			</div>
 		);
+	}
+
+	/**
+	 * Invoked once, only on the client, after rendering occurs.
+	 */
+	componentDidMount() {
+		console.log('Function called: %s', 'componentDidMount');
+	}
+
+	/**
+	 * Invoked prior to unmounting component.
+	 */
+	componentWillUnmount() {
+		console.log('Function called: %s', 'componentWillUnmount');
+	}
+	/**
+	 * Return value determines whether component should update.
+	 */
+	shouldComponentUpdate() {
+		console.log('Function called: %s', 'shouldComponentUpdate');
 	}
 	handleClick() {
 		console.log(this); // React Component instance
