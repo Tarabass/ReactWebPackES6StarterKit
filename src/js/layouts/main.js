@@ -34,14 +34,14 @@ const Main = React.createClass({
 						{this._getLinks()}
 					</ul>
 				</aside>
-				<div onClick={this.handleClick}>handle click of createClass instance (main.js)</div>
+				<div onClick={this._handleClick}>handle click of createClass instance (main.js)</div>
 				<main>
 					{this.props.children}
 				</main>
 			</div>
 		);
 	},
-	handleClick() {
+	_handleClick() {
 		console.log(this); // React Component instance
 	},
 	_getLinks() {
