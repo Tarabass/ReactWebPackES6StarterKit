@@ -26,23 +26,12 @@ const Main = React.createClass({
 		};
 	},
 	render: function() {
-		const links = [{
-				text: 'Home',
-				href: '/'
-			}, {
-				text: 'Users',
-				href: '/users'
-			}, {
-				text: 'Widgets',
-				href: 'widgets'
-			}];
-
 		return (
 			<div className="app">
 				<header className="primary-header"></header>
 				<aside className="primary-aside">
 					<ul>
-						{links.map(link => <li><Link to={link.href} activeClassName="active">{link.text}</Link></li>)}
+						{this._getLinks()}
 					</ul>
 				</aside>
 				<div onClick={this.handleClick}>handle click of createClass instance (main.js)</div>
@@ -54,6 +43,25 @@ const Main = React.createClass({
 	},
 	handleClick() {
 		console.log(this); // React Component instance
+	},
+	_getLinks() {
+		const links = [{
+			id: 1,
+			text: 'Home',
+			href: '/'
+		}, {
+			id: 2,
+			text: 'Users',
+			href: '/users'
+		}, {
+			id: 3,
+			text: 'Widgets',
+			href: 'widgets'
+		}];
+
+		return links.map(link => {
+			return <li key={link.id}><Link to={link.href} activeClassName="active">{link.text}</Link></li>;
+		});
 	}
 });
 
