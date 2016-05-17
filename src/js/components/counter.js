@@ -8,6 +8,7 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
+import 'sass/components/counter';
 import React, {Component, PropTypes} from 'react';
 
 class Counter extends Component {
@@ -20,15 +21,27 @@ class Counter extends Component {
 
 		this.tick = this.tick.bind(this);
 	}
-	tick() {
-		this.setState({
-			count: this.state.count + 1
-		});
+	tick(i) {
+		var count = this.state.count + i;
+
+		if(count >= 0) {
+			this.setState({
+				count: count
+			});
+		}
+	}
+	increase() {
+		this.tick(1);
+	}
+	decrease() {
+		this.tick(-1);
 	}
 	render() {
 		return (
-			<div onClick={this.tick}>
-				Clicks: {this.state.count}
+			<div className="stepperInput">
+				<button className="button button--addOnLeft" onClick={this.decrease.bind(this)}>-</button>
+				<input type="text" placeholder="Age" value={this.state.count} className="input stepperInput__input"/>
+				<button className="button button--addOnRight" onClick={this.increase.bind(this)}>+</button>
 			</div>
 		);
 	}
@@ -48,7 +61,7 @@ class Counter extends Component {
 			currentCount = me.state.count,
 			nextCount = nextState.count;
 
-		return (currentCount < nextCount) && ((nextCount - currentCount) === 1);
+		return Math.abs(currentCount - nextCount) === 1;
 	}
 }
 
