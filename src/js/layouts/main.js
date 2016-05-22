@@ -8,42 +8,53 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
+import 'sass/layouts/main';
+
 import React from 'react';
 import { Link } from 'react-router';
+import { IndexLink } from 'react-router';
 
 const Main = React.createClass({
 	propTypes: {
 
 	},
+
 	getDefaultProps() {
 		return {
 
 		};
 	},
+
 	getInitialState () {
 		return {
 
 		};
 	},
+
 	render: function() {
 		return (
-			<div className="app">
-				<header className="primary-header"></header>
-				<aside className="primary-aside">
+			<div className="main">
+				<nav className="nav">
 					<ul>
 						{this._getLinks()}
 					</ul>
-				</aside>
-				<div onClick={this._handleClick}>handle click of createClass instance (main.js)</div>
+				</nav>
+				<header onClick={this._handleHeaderClick} className="header"></header>
 				<main>
 					{this.props.children}
 				</main>
 			</div>
 		);
 	},
-	_handleClick() {
+
+	/**
+	 * handle click of createClass instance (main.js)
+	 * @private
+	 */
+	_handleHeaderClick() {
 		console.log(this); // React Component instance
 	},
+
 	_getLinks() {
 		const links = [{
 			id: 1,
@@ -56,11 +67,20 @@ const Main = React.createClass({
 		}, {
 			id: 3,
 			text: 'Widgets',
-			href: 'widgets'
+			href: '/widgets'
+		}, {
+			id: 4,
+			text: 'Blog',
+			href: '/blog'
 		}];
 
 		return links.map(link => {
-			return <li key={link.id}><Link to={link.href} activeClassName="active">{link.text}</Link></li>;
+			if(link.href === '/') {
+				return <li key={link.id}><IndexLink to={link.href} activeClassName="active">{link.text}</IndexLink></li>;
+			}
+			else {
+				return <li key={link.id}><Link to={link.href} activeClassName="active">{link.text}</Link></li>;
+			}
 		});
 	}
 });

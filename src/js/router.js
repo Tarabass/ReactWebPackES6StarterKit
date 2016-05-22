@@ -28,6 +28,7 @@ export default (
 				<Route path="users" component={Users} />
 				<Route path="widgets" component={Widgets} />
 			</Route>
+			<Route path="blog" component="{CommentBox}" />
 		</Route>
 	</Router>
 );
