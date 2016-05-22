@@ -38,9 +38,16 @@ export default class SearchBar extends Component {
 	}
 
 	_handleChange() {
+		/**
+		 * https://facebook.github.io/react/docs/more-about-refs.html
+		 *
+		 * If you want to preserve Google Closure Compiler advanced-mode crushing resilience, make sure to never access
+		 * as a property what was specified as a string. This means you must access using this.refs['myRefString'] if
+		 * your ref was defined as ref="myRefString".
+		 */
 		this.props.onUserInput(
-			this.refs.filterTextInput.value,
-			this.refs.inStockOnlyInput.checked
+			this.refs['filterTextInput'].value,
+			this.refs['inStockOnlyInput'].checked
 		);
 	}
 }
