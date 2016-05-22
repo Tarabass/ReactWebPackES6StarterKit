@@ -14,7 +14,7 @@ import { Router, Route/*, browserHistory*/, IndexRoute } from 'react-router';
 // Pages
 import Home from './components/home';
 import Users from './components/users';
-import Widgets from './components/widgets';
+import Products from './components/products';
 
 // Layouts
 import Main from './layouts/main';
@@ -26,7 +26,7 @@ export default (
 			<IndexRoute component={Home} />
 			<Route component={Search}>
 				<Route path="users" component={Users} />
-				<Route path="widgets" component={Widgets} />
+				<Route path="products" component={Products} />
 			</Route>
 			<Route path="blog" component="{CommentBox}" />
 		</Route>

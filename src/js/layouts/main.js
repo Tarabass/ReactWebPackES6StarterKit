@@ -66,8 +66,8 @@ const Main = React.createClass({
 			href: '/users'
 		}, {
 			id: 3,
-			text: 'Widgets',
-			href: '/widgets'
+			text: 'Products',
+			href: '/products'
 		}, {
 			id: 4,
 			text: 'Blog',
