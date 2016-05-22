@@ -8,6 +8,8 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
+import 'sass/components/filterabletable/filterabletable';
+
 import React, {Component} from 'react';
 
 import SearchBar from './searchbar';
@@ -26,7 +28,7 @@ export default class FilterableTable extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="filterabletable">
 				<SearchBar
 					filterText={this.state.filterText}
 					inStockOnly={this.state.inStockOnly}

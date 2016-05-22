@@ -8,6 +8,8 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
+import 'sass/components/filterabletable/table';
+
 import React, {Component} from 'react';
 
 import CategoryRow from './categoryrow';
@@ -18,15 +20,17 @@ export default class Table extends Component {
 		var rows = this._getFilteredRows();
 
 		return (
-			<table>
-				<thead>
-				<tr>
-					<th>Name</th>
-					<th>Price</th>
-				</tr>
-				</thead>
-				<tbody>{rows}</tbody>
-			</table>
+			<div className="table-wrapper">
+				<table>
+					<thead>
+					<tr className="header">
+						<th>Name</th>
+						<th>Price</th>
+					</tr>
+					</thead>
+					<tbody>{rows}</tbody>
+				</table>
+			</div>
 		);
 	}
 
@@ -40,7 +44,7 @@ export default class Table extends Component {
 		 	}
 
 		 	if (product.category !== lastCategory) {
-		 		rows.push(<CategoryRow category={product.category} key={product.category} />);
+		 		rows.push(<CategoryRow colspan="2" category={product.category} key={product.category} />);
 		 	}
 
 		 	rows.push(<Row product={product} key={product.name} />);

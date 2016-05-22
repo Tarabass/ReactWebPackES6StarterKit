@@ -8,12 +8,14 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
+import 'sass/components/filterabletable/searchbar';
+
 import React, {Component} from 'react';
 
 export default class SearchBar extends Component {
 	render() {
 		return (
-			<form>
+			<form className="searchbar">
 				<input
 					type="text"
 					placeholder="Search..."

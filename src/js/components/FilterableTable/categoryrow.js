@@ -13,7 +13,7 @@ import React, {Component} from 'react';
 export default class CategoryRow extends Component {
 	render() {
 		return (
-			<tr><th colSpan="2">{this.props.category}</th></tr>
+			<tr className="category"><th colSpan={this.props.colspan}>{this.props.category}</th></tr>
 		);
 	}
 }
