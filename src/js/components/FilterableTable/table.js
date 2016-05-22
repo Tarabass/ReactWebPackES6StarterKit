@@ -8,40 +8,14 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 
 import CategoryRow from './categoryrow';
 import Row from './row';
 
-class Table extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-
-	/**
-	 * Invoked once, on both client & server before rendering occurs.
-	 */
-	componentWillMount() {
-		console.log('Function called from Table: %s', 'componentWillMount');
-	}
-
-	/**
-	 * The render() method is required.
-	 */
+export default class Table extends Component {
 	render() {
-		var rows = [];
-		var lastCategory = null;
-		this.props.products.forEach(function(product) {
-			if (product.name.indexOf(this.props.filterText) === -1 || (!product.stocked && this.props.inStockOnly)) {
-				return;
-			}
-			if (product.category !== lastCategory) {
-				rows.push(<CategoryRow category={product.category} key={product.category} />);
-			}
-			rows.push(<Row product={product} key={product.name} />);
-			lastCategory = product.category;
-		}.bind(this));
+		var rows = this._getFilteredRows();
 
 		return (
 			<table>
@@ -56,28 +30,23 @@ class Table extends Component {
 		);
 	}
 
-	/**
-	 * Invoked once, only on the client, after rendering occurs.
-	 */
-	componentDidMount() {
-		console.log('Function called from Table: %s', 'componentDidMount');
-	}
+	_getFilteredRows() {
+		var rows = [];
+		var lastCategory = null;
 
-	/**
-	 * Invoked prior to unmounting component.
-	 */
-	componentWillUnmount() {
-		console.log('Function called from Table: %s', 'componentWillUnmount');
-	}
+		this.props.products.map((product) => {
+			if (product.name.indexOf(this.props.filterText) === -1 || (!product.stocked && this.props.inStockOnly)) {
+		 		return;
+		 	}
 
-	/**
-	 * Return value determines whether component should update.
-	 */
-	shouldComponentUpdate() {
-		console.log('Function called from Table: %s', 'shouldComponentUpdate');
+		 	if (product.category !== lastCategory) {
+		 		rows.push(<CategoryRow category={product.category} key={product.category} />);
+		 	}
+
+		 	rows.push(<Row product={product} key={product.name} />);
+		 	lastCategory = product.category;
+		 });
+
+		return rows;
 	}
 }
-Table.propTypes = {};
-Table.defaultProps = {};
-
-export default Table;

@@ -8,26 +8,10 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 
-class SearchBar extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-
-	/**
-	 * Invoked once, on both client & server before rendering occurs.
-	 */
-	componentWillMount() {
-		console.log('Function called from SearchBar: %s', 'componentWillMount');
-	}
-
-	/**
-	 * The render() method is required.
-	 */
+export default class SearchBar extends Component {
 	render() {
-		// TODO: make search input working
 		return (
 			<form>
 				<input
@@ -35,14 +19,14 @@ class SearchBar extends Component {
 					placeholder="Search..."
 					value={this.props.filterText}
 					ref="filterTextInput"
-					onChange={this.handleChange}
+					onChange={this._handleChange.bind(this)}
 				/>
 				<p>
 					<input
 						type="checkbox"
 						checked={this.props.inStockOnly}
 						ref="inStockOnlyInput"
-						onChange={this.handleChange}
+						onChange={this._handleChange.bind(this)}
 					/>
 					{' '}
 					Only show products in stock
@@ -57,29 +41,4 @@ class SearchBar extends Component {
 			this.refs.inStockOnlyInput.checked
 		);
 	}
-
-	/**
-	 * Invoked once, only on the client, after rendering occurs.
-	 */
-	componentDidMount() {
-		console.log('Function called from SearchBar: %s', 'componentDidMount');
-	}
-
-	/**
-	 * Invoked prior to unmounting component.
-	 */
-	componentWillUnmount() {
-		console.log('Function called from SearchBar: %s', 'componentWillUnmount');
-	}
-
-	/**
-	 * Return value determines whether component should update.
-	 */
-	shouldComponentUpdate() {
-		console.log('Function called from SearchBar: %s', 'shouldComponentUpdate');
-	}
 }
-SearchBar.propTypes = {};
-SearchBar.defaultProps = {};
-
-export default SearchBar;

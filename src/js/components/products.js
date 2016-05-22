@@ -10,16 +10,9 @@
  */
 import React, {Component} from 'react';
 
-import LinkButton from './linkbutton';
 import FilterableTable from './FilterableTable/filterabletable';
 
-class Products extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-
-		};
-	}
+export default class Products extends Component {
 	render() {
 		var PRODUCTS = [
 			{category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
@@ -32,17 +25,9 @@ class Products extends Component {
 
 		return (
 			<div>
-				<LinkButton text="Thinking in react" link="https://facebook.github.io/react/docs/thinking-in-react.html" />
+				<a href="https://facebook.github.io/react/docs/thinking-in-react.html">Thinking in react</a><br/>
 				<FilterableTable products={PRODUCTS} />
 			</div>
 		);
 	}
 }
-Products.propTypes = {
-
-};
-Products.defaultProps = {
-
-};
-
-export default Products;

@@ -8,24 +8,9 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 
-class Row extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-
-	/**
-	 * Invoked once, on both client & server before rendering occurs.
-	 */
-	componentWillMount() {
-		console.log('Function called from Row: %s', 'componentWillMount');
-	}
-
-	/**
-	 * The render() method is required.
-	 */
+export default class Row extends Component {
 	render() {
 		var name = this.props.product.stocked ? this.props.product.name : <span style={{color: 'red'}}>{this.props.product.name}</span>;
 
@@ -35,31 +20,5 @@ class Row extends Component {
 				<td>{this.props.product.price}</td>
 			</tr>
 		);
-
-	}
-
-	/**
-	 * Invoked once, only on the client, after rendering occurs.
-	 */
-	componentDidMount() {
-		console.log('Function called from Row: %s', 'componentDidMount');
-	}
-
-	/**
-	 * Invoked prior to unmounting component.
-	 */
-	componentWillUnmount() {
-		console.log('Function called from Row: %s', 'componentWillUnmount');
-	}
-
-	/**
-	 * Return value determines whether component should update.
-	 */
-	shouldComponentUpdate() {
-		console.log('Function called from Row: %s', 'shouldComponentUpdate');
 	}
 }
-Row.propTypes = {};
-Row.defaultProps = {};
-
-export default Row;

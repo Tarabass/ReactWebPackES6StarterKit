@@ -8,30 +8,22 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 
 import SearchBar from './searchbar';
 import Table from './table';
 
-class FilterableTable extends Component {
+export default class FilterableTable extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			filterText: '',
 			inStockOnly: false
 		};
+
+		this._handleUserInput = this._handleUserInput.bind(this);
 	}
 
-	/**
-	 * Invoked once, on both client & server before rendering occurs.
-	 */
-	componentWillMount() {
-		console.log('Function called from FilterableTable: %s', 'componentWillMount');
-	}
-
-	/**
-	 * The render() method is required.
-	 */
 	render() {
 		return (
 			<div>
@@ -56,28 +48,8 @@ class FilterableTable extends Component {
 		});
 	}
 
-	/**
-	 * Invoked once, only on the client, after rendering occurs.
-	 */
-	componentDidMount() {
-		console.log('Function called from FilterableTable: %s', 'componentDidMount');
-	}
-
-	/**
-	 * Invoked prior to unmounting component.
-	 */
-	componentWillUnmount() {
-		console.log('Function called from FilterableTable: %s', 'componentWillUnmount');
-	}
-
-	/**
-	 * Return value determines whether component should update.
-	 */
 	shouldComponentUpdate() {
 		console.log('Function called from FilterableTable: %s', 'shouldComponentUpdate');
+		return true;
 	}
 }
-FilterableTable.propTypes = {};
-FilterableTable.defaultProps = {};
-
-export default FilterableTable;

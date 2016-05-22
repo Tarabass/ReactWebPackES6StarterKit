@@ -8,52 +8,12 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 
-class CategoryRow extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-
-	/**
-	 * Invoked once, on both client & server before rendering occurs.
-	 */
-	componentWillMount() {
-		console.log('Function called from CategoryRow: %s', 'componentWillMount');
-	}
-
-	/**
-	 * The render() method is required.
-	 */
+export default class CategoryRow extends Component {
 	render() {
 		return (
 			<tr><th colSpan="2">{this.props.category}</th></tr>
 		);
 	}
-
-	/**
-	 * Invoked once, only on the client, after rendering occurs.
-	 */
-	componentDidMount() {
-		console.log('Function called from CategoryRow: %s', 'componentDidMount');
-	}
-
-	/**
-	 * Invoked prior to unmounting component.
-	 */
-	componentWillUnmount() {
-		console.log('Function called from CategoryRow: %s', 'componentWillUnmount');
-	}
-
-	/**
-	 * Return value determines whether component should update.
-	 */
-	shouldComponentUpdate() {
-		console.log('Function called from CategoryRow: %s', 'shouldComponentUpdate');
-	}
 }
-CategoryRow.propTypes = {};
-CategoryRow.defaultProps = {};
-
-export default CategoryRow;
