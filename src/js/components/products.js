@@ -20,8 +20,45 @@ export default class Products extends Component {
 			{category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
 			{category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
 			{category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
-			{category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
+			{category: 'Electronics', price: '$399.99', stocked: true, name: 'Nexus 7'}
 		];
+
+		debugger;
+
+		// http://codereview.stackexchange.com/questions/83717/filter-out-duplicates-from-an-array-and-return-only-unique-value
+		/*var unique = function(xs) {
+			return xs.filter(function(x, i) {
+				return xs.indexOf(x) === i
+			})
+		};
+
+		var unique = function(xs) {
+			var seen = {}
+			return xs.filter(function(x) {
+				if (seen[x])
+					return
+				seen[x] = true
+				return x
+			})
+		}*/
+
+		var unique = function(arrayOfObjects, fieldOfObject) {
+			var seen = {};
+			var arrayOfUniqueFields = [];
+
+			arrayOfObjects.filter(function(o) {
+				if (seen[o[fieldOfObject]])
+					return;
+
+				seen[o[fieldOfObject]] = true;
+				arrayOfUniqueFields.push(o[fieldOfObject]);
+			});
+
+			return arrayOfUniqueFields;
+		}
+
+		// TODO: add prop categories to FilterableTable and fill it with result of unique() to build dropdown in searchbar
+		console.log(unique(PRODUCTS, 'category'));
 
 		return (
 			<div>
