@@ -21,12 +21,12 @@ export default class Table extends Component {
 
 		return (
 			<div className="table-wrapper">
-				<table>
+				<table className="table">
 					<thead>
-					<tr className="header">
-						<th>Name</th>
-						<th>Price</th>
-					</tr>
+						<tr className="table-header">
+							<th>Name</th>
+							<th>Price</th>
+						</tr>
 					</thead>
 					<tbody>{rows}</tbody>
 				</table>
@@ -43,9 +43,9 @@ export default class Table extends Component {
 		 		return;
 		 	}
 
-		 	if (product.category !== lastCategory) {
+		 	/*if (product.category !== lastCategory) {
 		 		rows.push(<CategoryRow colspan="2" category={product.category} key={product.category} />);
-		 	}
+		 	}*/
 
 		 	rows.push(<Row product={product} key={product.name} />);
 		 	lastCategory = product.category;

@@ -1,10 +1,12 @@
 .table-wrapper {
-	overflow: auto;
 	border: 1px solid #ccc;
+	overflow-x: auto;
 
 	table {
-		min-width: 100%;
+		width: 100%;
+		border-spacing: 0;
 		border-collapse: collapse;
+		background-color: transparent;
 
 		td, th {
 			padding: 0.5rem;
@@ -19,7 +21,7 @@
 			background-color: #fff;
 		}
 
-		tr.header {
+		tr.table-header {
 			background-color: #eee;
 			border-bottom: 1px solid #ccc;
 
@@ -40,5 +42,28 @@
 			border-style: solid;
 			border-color: #f9f9f9;
 		}
+
+
+
+		thead {
+			/*width: 100%;*/
+		}
+
+		tbody {
+			height: 150px;
+			overflow-y: auto;
+			/*width: 100%;*/
+		}
+
+		thead, tbody, tr, td, th {
+			display: block;
+		}
+
+		tbody > tr > td, thead > tr > th {
+			display: inline-block;
+			width: 50%;
+		}
+
+
 	}
 }
