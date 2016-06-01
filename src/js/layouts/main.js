@@ -9,6 +9,7 @@
  * Copyright (c) 2016 Strictly Internet
  */
 import 'sass/layouts/main';
+import 'font-awesome/scss/font-awesome';
 
 import React from 'react';
 import { Link } from 'react-router';
@@ -59,27 +60,31 @@ const Main = React.createClass({
 		const links = [{
 			id: 1,
 			text: 'Home',
-			href: '/'
+			href: '/',
+			icon: 'home'
 		}, {
 			id: 2,
 			text: 'Users',
-			href: '/users'
+			href: '/users',
+			icon: 'users'
 		}, {
 			id: 3,
 			text: 'Products',
-			href: '/products'
+			href: '/products',
+			icon: 'list'
 		}, {
 			id: 4,
 			text: 'Blog',
-			href: '/blog'
+			href: '/blog',
+			icon: 'comments'
 		}];
 
 		return links.map(link => {
 			if(link.href === '/') {
-				return <li key={link.id}><IndexLink to={link.href} activeClassName="active">{link.text}</IndexLink></li>;
+				return <li key={link.id}><IndexLink to={link.href} activeClassName="active"><i className={"fa fa-" + link.icon}></i>{link.text}</IndexLink></li>;
 			}
 			else {
-				return <li key={link.id}><Link to={link.href} activeClassName="active">{link.text}</Link></li>;
+				return <li key={link.id}><Link to={link.href} activeClassName="active"><i className={"fa fa-" + link.icon}></i>{link.text}</Link></li>;
 			}
 		});
 	}

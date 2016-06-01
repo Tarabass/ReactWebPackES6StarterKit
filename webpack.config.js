@@ -38,13 +38,32 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
+
+			// Used for font-awesome to load fonts
+			}, {
+				test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+				loader: "url-loader?limit=10000&mimetype=font/x-woff&name=[name].[ext]"
+			}, {
+				test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+				loader: "url?limit=10000&mimetype=application/font-woff&name=[hash].[ext]"
+			}, {
+				test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+				loader: "url?limit=10000&mimetype=application/octet-stream&name=[name].[ext]"
+			}, {
+				test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+				loader: "file"
+			}, {
+				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+				loader: "url?limit=10000&mimetype=image/svg+xml&name=/[name].[ext]"
 			}
+			// eo Used for font-awesome to load fonts
 		]
 	},
 	output: {
 		filename: '[name].js',
 		path: path.join(__dirname, './build'),
-		publicPath: '/build'
+		/*publicPath: '/ReactWebPackES6/build/'*/
+		publicPath: ''
 	},
 	plugins: [
 		new ExtractTextPlugin('[name].css')
@@ -53,6 +72,7 @@ module.exports = {
 		// when using a named entry this will create a app.js and app.css when [name] is used
 		app: ['./src/app']
 	},
+	//context: __dirname + '/src',
 	watch: true,
 	colors: true,
 	progress: true,

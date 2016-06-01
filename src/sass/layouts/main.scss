@@ -24,6 +24,10 @@
 					&.active {
 						border-bottom: 3px solid red;
 					}
+
+					& span {
+						padding-left: 4px;
+					}
 				}
 			}
 		}
