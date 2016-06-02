@@ -14,6 +14,7 @@ import 'font-awesome/scss/font-awesome';
 import React from 'react';
 import { Link } from 'react-router';
 import { IndexLink } from 'react-router';
+import BreadCrumb from '../components/breadcrumb';
 
 const Main = React.createClass({
 	propTypes: {
@@ -41,6 +42,7 @@ const Main = React.createClass({
 					</ul>
 				</nav>
 				<header onClick={this._handleHeaderClick} className="header"></header>
+				<BreadCrumb />
 				<main>
 					{this.props.children}
 				</main>
@@ -81,10 +83,18 @@ const Main = React.createClass({
 
 		return links.map(link => {
 			if(link.href === '/') {
-				return <li key={link.id}><IndexLink to={link.href} activeClassName="active"><i className={"fa fa-" + link.icon}></i>{link.text}</IndexLink></li>;
+				return <li key={link.id}>
+							<IndexLink to={link.href} activeClassName="active">
+								<i className={"fa fa-" + link.icon}></i>{link.text}
+							</IndexLink>
+						</li>;
 			}
 			else {
-				return <li key={link.id}><Link to={link.href} activeClassName="active"><i className={"fa fa-" + link.icon}></i>{link.text}</Link></li>;
+				return <li key={link.id}>
+							<Link to={link.href} activeClassName="active">
+								<i className={"fa fa-" + link.icon}></i>{link.text}
+							</Link>
+						</li>;
 			}
 		});
 	}

@@ -38,7 +38,7 @@ class Home extends Component {
 				<Paragraph text="https://css-tricks.com/learning-react-router/" />
 				<LinkButton color="green" text="I also read about React.createClass versus extends Component" link="https://toddmotto.com/react-create-class-versus-component/" />
 				<LinkButton text="Using css/sass is talked about here" link="https://www.bensmithett.com/smarter-css-builds-with-webpack/" />
-				<div onClick={this.handleClick.bind(this)}>handle click of extend Components (home.js)</div>
+				<div onClick={this._handleClick.bind(this)}>handle click of extend Components (home.js)</div>
 				<Counter/>
 			</div>
 		);
@@ -63,7 +63,7 @@ class Home extends Component {
 	shouldComponentUpdate() {
 		console.log('Function called: %s', 'shouldComponentUpdate');
 	}
-	handleClick() {
+	_handleClick() {
 		console.log(this); // React Component instance
 	}
 }
