@@ -9,7 +9,8 @@
  * Copyright (c) 2016 Strictly Internet
  */
 import React from 'react';
-import { Router, Route/*, browserHistory*/, IndexRoute } from 'react-router';
+import { Router, Route, useRouterHistory, IndexRoute } from 'react-router';
+import { createHistory } from 'history';
 
 // Pages
 import Home from './components/home';
@@ -20,8 +21,12 @@ import Products from './components/products';
 import Main from './layouts/main';
 import Search from './layouts/search';
 
+const history = useRouterHistory(createHistory)({
+	basename: '/ReactWebPackES6'
+});
+
 export default (
-	<Router>
+	<Router history={history}>
 		<Route path="/" component={Main}>
 			<IndexRoute component={Home} />
 			<Route component={Search}>
