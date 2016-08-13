@@ -10,9 +10,15 @@
  */
 import React, {Component, PropTypes} from 'react';
 
+// import headerImage from '../../img/header.jpg';
+const headerImage = 'build/' + require("../../img/header.jpg");
+
 class Header extends Component {
 	render() {
-		return <header onClick={this.props.onClick} className="header"></header>;
+		console.log(headerImage);
+		return <header onClick={this.props.onClick} className="header">
+			<img src={headerImage} />
+		</header>;
 	}
 }
 
