@@ -1,7 +1,11 @@
 .main {
 	& .nav {
-		background-color: rgba(220, 216, 216, 1);
 		padding: 12px 12px 0;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		left: 0px;
+		background-color: rgba(220, 216, 216, 0.8);
 
 		& ul {
 			list-style: none;
@@ -34,8 +38,8 @@
 	}
 
 	& .header {
-		height: 50px;
-		background-color: ghostwhite;
+		height: 200px;
+		background-color: purple;
 	}
 
 	& main {
