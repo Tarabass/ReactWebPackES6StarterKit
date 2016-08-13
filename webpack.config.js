@@ -55,8 +55,20 @@ module.exports = {
 			}, {
 				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
 				loader: "url?limit=10000&mimetype=image/svg+xml&name=/[name].[ext]"
-			}
+
 			// eo Used for font-awesome to load fonts
+
+			// Used for images
+			}, {
+				/*test: /\.(jpe?g|png|gif|svg)$/i,*/
+				test: /\.(jpe?g|png|gif)$/i,
+				loaders: [
+					'file?hash=sha512&digest=hex&name=[hash].[ext]',
+					/*'file?name=img/[name].[ext]',*/
+					'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+				]
+			}
+			// eo Used for images
 		]
 	},
 	output: {
