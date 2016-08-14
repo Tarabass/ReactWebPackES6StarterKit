@@ -14,10 +14,7 @@ import headerImage from '../../img/header.jpg';
 
 class Header extends Component {
 	render() {
-		console.log(headerImage);
-		return <header onClick={this.props.onClick} className="header">
-			<img src={headerImage} />
-		</header>;
+		return <header onClick={this.props.onClick} className="header" style={{background: 'rgba(217, 217, 217, 0.5) url(' + headerImage + ') no-repeat scroll center bottom'}}/>;
 	}
 }
 
