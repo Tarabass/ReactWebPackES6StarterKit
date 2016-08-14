@@ -8,14 +8,14 @@
  *
  * Copyright (c) 2016 Strictly Internet
  */
-var path = require('path');
-var webpack = require('webpack');
+var path = require("path");
+var webpack = require("webpack");
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const sassLoaders = [
-	'css-loader',
-	'postcss-loader',
-	'sass-loader?includePaths[]=' + path.resolve(__dirname, './src')
+	"css-loader",
+	"postcss-loader",
+	"sass-loader?includePaths[]=" + path.resolve(__dirname, "./src")
 ];
 
 module.exports = {
@@ -23,23 +23,23 @@ module.exports = {
 		loaders: [
 			{
 				loader: "babel-loader",
-				// Skip any files outside of your project's `src` directory
+				// Skip any files outside of your project"s `src` directory
 				include: [
 					path.resolve(__dirname, "src"),
 				],
 				// Only run `.js` and `.jsx` files through Babel
 				test: /\.jsx?$//*,
-				// Options to configure babel with (moved to .babelrc)
-				query: {
-					plugins: ['transform-runtime'],
-					presets: ['es2015', 'react'],
-				}*/
+			 // Options to configure babel with (moved to .babelrc)
+			 query: {
+			 plugins: ["transform-runtime"],
+			 presets: ["es2015", "react"],
+			 }*/
 			},
 			{
 				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract('style-loader', sassLoaders.join('!')),
+				loader: ExtractTextPlugin.extract("style-loader", sassLoaders.join("!")),
 
-			// Used for font-awesome to load fonts
+				// Used for font-awesome to load fonts
 			}, {
 				test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
 				loader: "url-loader?limit=10000&mimetype=font/x-woff&name=[name].[ext]"
@@ -56,44 +56,44 @@ module.exports = {
 				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
 				loader: "url?limit=10000&mimetype=image/svg+xml&name=/[name].[ext]"
 
-			// eo Used for font-awesome to load fonts
+				// eo Used for font-awesome to load fonts
 
-			// Used for images
+				// Used for images
 			}, {
 				/*test: /\.(jpe?g|png|gif|svg)$/i,*/
 				test: /\.(jpe?g|png|gif)$/i,
 				loaders: [
-					'file?hash=sha512&digest=hex&name=[hash].[ext]',
-					/*'file?name=img/[name].[ext]',*/
-					'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+					"file?hash=sha512&digest=hex&name=[hash].[ext]",
+					/*"file?name=img/[name].[ext]",*/
+					"image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false"
 				]
 			}
 			// eo Used for images
 		]
 	},
 	output: {
-		filename: '[name].js',
-		path: path.join(__dirname, './build'),
-		/*publicPath: '/ReactWebPackES6/build/'*/
-		publicPath: ''
+		filename: "[name].js",
+		path: path.join(__dirname, "./build"),
+		/*publicPath: "/ReactWebPackES6/build/"*/
+		publicPath: ""
 	},
 	plugins: [
-		new ExtractTextPlugin('[name].css')
+		new ExtractTextPlugin("[name].css")
 	],
 	entry: {
 		// when using a named entry this will create a app.js and app.css when [name] is used
-		app: ['./src/app']
+		app: ["./src/app"]
 	},
-	//context: __dirname + '/src',
+	//context: __dirname + "/src",
 	watch: true,
 	colors: true,
 	progress: true,
-	devtool: 'source-map',
+	devtool: "source-map",
 	sassLoader: {
 		includePaths: [path.resolve(__dirname, "./src")]
 	},
 	resolve: {
-		extensions: ['', '.js', '.scss'],
-		root: [path.join(__dirname, './src')]
+		extensions: ["", ".js", ".scss"],
+		root: [path.join(__dirname, "./src")]
 	}
 };
