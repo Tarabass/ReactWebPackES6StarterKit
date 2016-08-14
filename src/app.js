@@ -14,5 +14,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Router from './js/router';
 
+/**
+ * Import index.html so webpack can copy it to our build folder
+ */
+import 'file?name=[name].[ext]!../index.html';
+
 // Now we can attach the router to the 'root' element like this:
 ReactDOM.render(Router, document.getElementById('viewport'));

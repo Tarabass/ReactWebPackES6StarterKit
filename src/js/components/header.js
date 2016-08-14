@@ -10,8 +10,7 @@
  */
 import React, {Component, PropTypes} from 'react';
 
-// import headerImage from '../../img/header.jpg';
-const headerImage = 'build/' + require("../../img/header.jpg");
+import headerImage from '../../img/header.jpg';
 
 class Header extends Component {
 	render() {
