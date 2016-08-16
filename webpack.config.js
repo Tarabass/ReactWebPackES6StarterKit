@@ -60,11 +60,9 @@ module.exports = {
 
 				// Used for images
 			}, {
-				/*test: /\.(jpe?g|png|gif|svg)$/i,*/
-				test: /\.(jpe?g|png|gif)$/i,
+				test: /\.(jpe?g|png|gif|svg)$/i,
 				loaders: [
 					"file?hash=sha512&digest=hex&name=[hash].[ext]",
-					/*"file?name=img/[name].[ext]",*/
 					"image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false"
 				]
 			}
@@ -73,9 +71,9 @@ module.exports = {
 	},
 	output: {
 		filename: "[name].js",
-		path: path.join(__dirname, "./build"),
-		/*publicPath: "/ReactWebPackES6/build/"*/
-		publicPath: ""
+		path: path.join(__dirname, "./build")/*,
+		publicPath: "/ReactWebPackES6/"
+		publicPath: ""*/
 	},
 	plugins: [
 		new ExtractTextPlugin("[name].css")
