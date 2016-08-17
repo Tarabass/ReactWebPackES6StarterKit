@@ -1,5 +1,12 @@
-$font-stack:    Helvetica, sans-serif;
+$font-path: '../font';
 $primary-color: #333;
+
+@font-face {
+	font-family: 'ff Anonymous Pro';
+	src: url('#{$font-path}/Anonymous Pro.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
 
 * {
 	padding: 0;
@@ -9,7 +16,10 @@ $primary-color: #333;
 	outline: none;
 }
 
+html {
+	font: 14px/20px "ff Anonymous Pro", monospace;
+}
+
 body {
-	font: 100% $font-stack;
 	color: $primary-color;
 }
