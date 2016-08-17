@@ -40,6 +40,9 @@ class Home extends Component {
 				<Paragraph text="https://gist.github.com/Turbo87/e8e941e68308d3b40ef6" />
 				<Paragraph text="https://github.com/postcss/postcss-loader" />
 				<Paragraph text="http://madewithreact.com/tag/react/" />
+				<Paragraph text="http://davidmeents.com/how-to-set-up-webpack-image-loader/" />
+				<Paragraph text="https://auth0.com/blog/bootstrapping-a-react-project/" />
+				<Paragraph text="https://webpack.github.io/docs/webpack-dev-server.html" />
 				<LinkButton color="green" text="I also read about React.createClass versus extends Component" link="https://toddmotto.com/react-create-class-versus-component/" />
 				<LinkButton text="Using css/sass is talked about here" link="https://www.bensmithett.com/smarter-css-builds-with-webpack/" />
 				<div onClick={this._handleClick.bind(this)}>handle click of extend Components (home.js)</div>
